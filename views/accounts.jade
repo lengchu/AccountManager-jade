@@ -1,11 +1,9 @@
 extends ./base.jade
 
 block content
-    .container
-        h1(style={
-            'text-align': 'center', 
-            'margin-top': '30px', 
-            'margin-bottom': '30px'}) All Accounts
+    link(rel="stylesheet", href="/css/account.css")
+    div
+        h1 All Accounts
         table.table(style={
             'text-align': 'center',
             width: '60%',
@@ -28,17 +26,13 @@ block content
                         td= acc.username
                 tr
                     td(colspan=2)
-                        button.btn.btn-light(style={
+                        a.btn.btn-light(style={
                             width: '12em',
                             'font-size': '1.3rem'
-                        } onclick= `jumpToAccAdd()`
+                        } href= `/account/add.html`
                         ) Add an Acc
 
     script.
         function jumpToAccDetials(id) {
             window.location.href= `/account/${id}`
-        }
-
-        function jumpToAccAdd() {
-            window.location.href= `/account/add`
         }

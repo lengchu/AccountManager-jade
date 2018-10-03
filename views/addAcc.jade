@@ -1,0 +1,37 @@
+extends ./base.jade
+
+block title
+    title Add Account
+    link(rel="stylesheet", href="/css/account.css")
+    style.
+        .form-control {
+            font-size: 1.3rem
+        }
+
+block content
+    h1 New Account
+    form(action="/account", method="post", style={
+        width: '60%',
+        margin: 'auto',
+        'min-width': '600px',
+        'font-size': '1.3rem'
+    })
+        .form-group()
+            input.form-control(type="text", 
+                name="accName", placeholder="AccName")
+        .form-group()
+            input.form-control(type="text", 
+                name="userName", placeholder="UserName")
+        .form-group()
+            input.form-control(type="text", 
+                name="password", placeholder="Password")
+        .form-group()
+            input.form-control(type="text", 
+                name="homepage", placeholder="Homepage")
+        .form-group()
+            textarea.form-control(name="comment", rows="3", 
+                placeholder="Comment")
+        .form-group()
+            input.btn.btn-info(type="submit", value="Save", style={
+                width: '6em'
+            })

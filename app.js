@@ -4,6 +4,7 @@ const Koa = require('koa')
 const router = require('./routes')
 const koaLogger = require('koa-logger')
 const koaStatic = require('koa-static')
+const bodyParser = require('koa-bodyparser')
 
 const app = new Koa()
 const viewsPath = path.resolve(path.join(__dirname, 'views'))
@@ -11,6 +12,7 @@ const staticPath = path.resolve(path.join(viewsPath, 'static'))
 
 app.use(koaLogger())
 app.use(koaStatic(staticPath))
+app.use(bodyParser())
 
 app.use(async (ctx, next) => {
     ctx.render = async (view, locals) => {
