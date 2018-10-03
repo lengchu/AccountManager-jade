@@ -15,10 +15,27 @@ const addView = async ctx => {
     await ctx.render('addAcc.jade')
 }
 
+const updateView = async ctx => {
+    const acc = await Account.findById(ctx.params.id)
+    await ctx.render('accUpdate.jade', {acc})
+}
+
 const addAcc = async ctx => {
     const params = ctx.request.body
     const acc = await Account.create(params)
     ctx.redirect(`/account/${acc.id}`)
+}
+
+const updateAcc = async ctx => {
+    const params = ctx.request.body
+    const acc = await Account.update(params, {
+        where: {
+            id: {
+                $eq: params.id
+            }
+        }
+    })
+    ctx.redirect(`/account/${params.id}`)
 }
 
 const listById = async ctx => {
@@ -45,5 +62,7 @@ module.exports = {
     addView,
     addAcc,
     listById,
-    deleteById
+    deleteById,
+    updateView,
+    updateAcc
 }

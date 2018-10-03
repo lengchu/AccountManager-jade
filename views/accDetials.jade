@@ -30,7 +30,7 @@ block content
                 td(colspan="2")
                     a.btn.btn-info(href="/") Back 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    button.btn.btn-primary Edit
+                    a.btn.btn-primary(href=`/account/update/${acc.id}`) Edit
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     button.btn.btn-danger(onclick=
                         `deleteById(${acc.id})`) Delete

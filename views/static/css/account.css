@@ -16,3 +16,7 @@ table.table {
     width: 6em;
     font-size: 1.3rem;
 }
+
+.form-control {
+    font-size: 1.3rem
+}

@@ -1,0 +1,27 @@
+form(action=`${action}`, method="POST", style={
+        width: '60%',
+        margin: 'auto',
+        'min-width': '600px',
+        'font-size': '1.3rem'
+    })
+    - let lacc = acc || {}
+    input(type="hidden", name="id", value=`${lacc.id || ''}`)
+    .form-group()
+        input.form-control(type="text", value=`${lacc.accName || ''}`
+            name="accName", placeholder="AccName")
+    .form-group()
+        input.form-control(type="text", value=`${lacc.username || ''}`
+            name="username", placeholder="UserName")
+    .form-group()
+        input.form-control(type="text", value=`${lacc.password || ''}`
+            name="password", placeholder="Password")
+    .form-group()
+        input.form-control(type="text", value=`${lacc.homepage || ''}`
+            name="homepage", placeholder="Homepage")
+    .form-group()
+        textarea.form-control(name="comment", value=`${lacc.comment || ''}`
+            rows="3", placeholder="Comment")
+    .form-group()
+        input.btn.btn-info(type="submit", value="Save", style={
+            width: '6em'
+        })
