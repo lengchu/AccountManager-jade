@@ -27,10 +27,23 @@ const listById = async ctx => {
     await ctx.render('accDetials.jade', {acc})
 }
 
+const deleteById = async ctx => {
+    const id = ctx.params.id
+    await Account.destroy({
+        where: {
+            id: {
+                $eq: id
+            }
+        }
+    })
+    ctx.body = "ok"
+}
+
 module.exports = {
     index,
     listAll,
     addView,
     addAcc,
-    listById
+    listById,
+    deleteById
 }

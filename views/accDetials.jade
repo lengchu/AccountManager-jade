@@ -1,0 +1,49 @@
+extends ./base.jade
+
+block title
+    title Account Detials
+    link(rel="stylesheet", href="/css/account.css")
+
+block content
+    h1 Account Detials
+    table.table
+        tbody
+            tr
+                th ID
+                td= acc.id
+            tr
+                th AccName
+                td= acc.accName
+            tr
+                th UserName
+                td= acc.username    
+            tr
+                th Password
+                td= acc.password
+            tr
+                th Homepage
+                td= acc.homepage
+            tr
+                th Comment
+                td= acc.comment
+            tr
+                td(colspan="2")
+                    a.btn.btn-info(href="/") Back 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    button.btn.btn-primary Edit
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    button.btn.btn-danger(onclick=
+                        `deleteById(${acc.id})`) Delete
+    script(src="/js/jquery.min.js")
+    script.
+        function deleteById(id) {
+            $.ajax({
+                url: `/account/${id}`,
+                method: 'delete',
+                success: function(data) {
+                    if (data === "ok")
+                        window.location.href = '/'
+                }
+            })
+        }
+
