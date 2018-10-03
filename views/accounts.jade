@@ -1,0 +1,44 @@
+extends ./base.jade
+
+block content
+    .container
+        h1(style={
+            'text-align': 'center', 
+            'margin-top': '30px', 
+            'margin-bottom': '30px'}) All Accounts
+        table.table(style={
+            'text-align': 'center',
+            width: '60%',
+            margin: 'auto',
+            'min-width': '600px',
+            'font-size': '1.3rem'
+        })
+            thead
+                tr
+                    th AccName
+                    th UserName
+            tbody
+                each acc in accs
+                    tr(style={
+                            cursor: 'pointer'
+                        } 
+                        onclick= `jumpToAccDetials(${acc.id})`
+                    )
+                        td= acc.accName
+                        td= acc.username
+                tr
+                    td(colspan=2)
+                        button.btn.btn-light(style={
+                            width: '12em',
+                            'font-size': '1.3rem'
+                        } onclick= `jumpToAccAdd()`
+                        ) Add an Acc
+
+    script.
+        function jumpToAccDetials(id) {
+            window.location.href= `/account/${id}`
+        }
+
+        function jumpToAccAdd() {
+            window.location.href= `/account/add`
+        }

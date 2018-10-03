@@ -5,7 +5,7 @@ const router = new Router()
 
 const indexC = require('../controllers')
 
-router.get('/', indexC.index)
+router.get('/', indexC.listAll)
 
 
 module.exports = router
